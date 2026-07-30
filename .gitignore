@@ -18,9 +18,8 @@ venv/
 .pytest_cache/
 .mypy_cache/
 
-# Generated benchmark data
-results/*.csv
-results/plots/
+# Large raw benchmark datasets
+results/*_raw_results.csv
 
 # Jupyter
 .ipynb_checkpoints/
