@@ -7,8 +7,8 @@ import pandas as pd
 RESULTS_DIRECTORY = Path("results")
 PLOTS_DIRECTORY = RESULTS_DIRECTORY / "plots"
 
-RAW_RESULTS_PATH = RESULTS_DIRECTORY / "mlkem_raw_results.csv"
-SUMMARY_PATH = RESULTS_DIRECTORY / "mlkem_summary.csv"
+RAW_RESULTS_PATH = RESULTS_DIRECTORY / "ml_kem_768_raw_results.csv"
+SUMMARY_PATH = RESULTS_DIRECTORY / "ml_kem_768_summary.csv"
 
 
 DISPLAY_NAMES = {
