@@ -1,20 +1,20 @@
 import csv
-from collections.abc import Callable
 from pathlib import Path
 from statistics import mean, median, stdev
 from typing import Any
+from validation import validate_benchmark_result
+
+from algorithms import (
+    AlgorithmFunction,
+    BenchmarkResult,
+    get_algorithms,
+)
 
 from config import (
     BENCHMARK_ITERATIONS,
     RESULTS_DIRECTORY,
     WARMUP_ITERATIONS,
 )
-from mlkem_demo import mlkem_demo
-
-
-BenchmarkResult = dict[str, str | int | float | bool]
-AlgorithmFunction = Callable[[], BenchmarkResult]
-
 
 TIMING_FIELDS = (
     "key_generation_ms",
@@ -55,6 +55,7 @@ def benchmark_algorithm(
         raise ValueError("warmup_runs cannot be negative")
 
     initial_result = algorithm_function()
+    validate_benchmark_result(initial_result)
     algorithm_name = str(initial_result["algorithm"])
 
     if not initial_result["success"]:
@@ -218,9 +219,14 @@ def run_benchmarks(
 
 
 def main() -> None:
-    algorithms: list[AlgorithmFunction] = [
-        mlkem_demo,
-    ]
+    algorithms = get_algorithms()
+
+    if not algorithms:
+        raise RuntimeError(
+            "No cryptographic algorithms are registered."
+        )
+
+    print(f"Registered algorithms: {len(algorithms)}")
 
     run_benchmarks(algorithms)
 
