@@ -1,25 +1,60 @@
+# ==========================================
 # Python
+# ==========================================
+
 __pycache__/
 *.py[cod]
-*.pyo
-*.pyd
+*$py.class
 
-# Virtual environment
+# Virtual environments
 .venv/
 venv/
+env/
 
+# ==========================================
 # macOS
+# ==========================================
+
 .DS_Store
 
+# ==========================================
 # VS Code
-.vscode/
+# ==========================================
 
-# Python cache
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+# ==========================================
+# Python testing
+# ==========================================
+
 .pytest_cache/
-.mypy_cache/
+.coverage
+htmlcov/
 
-# Large raw benchmark datasets
-results/*_raw_results.csv
-
+# ==========================================
 # Jupyter
+# ==========================================
+
 .ipynb_checkpoints/
+
+# ==========================================
+# Build artifacts
+# ==========================================
+
+build/
+dist/
+*.egg-info/
+
+# ==========================================
+# Logs
+# ==========================================
+
+*.log
+
+# Operating system files
+Thumbs.db
+Desktop.ini
