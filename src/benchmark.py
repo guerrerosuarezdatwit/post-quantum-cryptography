@@ -2,19 +2,15 @@ import csv
 from pathlib import Path
 from statistics import mean, median, stdev
 from typing import Any
-from validation import validate_benchmark_result
 
-from algorithms import (
-    AlgorithmFunction,
-    BenchmarkResult,
-    get_algorithms,
-)
-
+from algorithms import get_algorithms
+from benchmark_types import AlgorithmFunction, BenchmarkResult
 from config import (
     BENCHMARK_ITERATIONS,
     RESULTS_DIRECTORY,
     WARMUP_ITERATIONS,
 )
+from validation import validate_benchmark_result
 
 TIMING_FIELDS = (
     "key_generation_ms",

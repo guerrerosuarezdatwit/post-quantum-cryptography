@@ -2,9 +2,10 @@ from time import perf_counter
 
 from mlkem.ml_kem import ML_KEM
 from mlkem.parameter_set import ML_KEM_768
+from benchmark_types import BenchmarkResult
 
 
-def mlkem_demo() -> dict[str, int | float | str | bool]:
+def mlkem_demo() -> BenchmarkResult:
     """
     Run one ML-KEM-768 key-establishment operation.
 
@@ -70,6 +71,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
 
 
